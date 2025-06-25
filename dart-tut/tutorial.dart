@@ -52,6 +52,8 @@ void main() {
   // Creating a new object from the User class by calling its constructor
   // 'userOne' is now an instance of User with username 'luigi' and age 25
   // You can access its properties (like username) and methods (like login)
+
+  // User userOne = User();
   User userOne = User('luigi', 25);
   print(userOne.username);
   userOne.login();
@@ -103,6 +105,8 @@ String month() => 'february';
 // You can then access the properties like: user.username or call methods like: user.login()
 
 class User {
+  // late String username = 'mario';
+  // late int age = 25;
   late String username;
   late int age;
 

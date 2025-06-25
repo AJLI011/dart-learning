@@ -48,13 +48,29 @@ void main() {
   //in a list, while its not bad to mix data with diff datatype, mas better na wag
   //a good practice is to assign a datatype to a list by using <>
 
-  // class calling
+  //=============CLASS CALLING=============
+  // Creating a new object from the User class by calling its constructor
+  // 'userOne' is now an instance of User with username 'luigi' and age 25
+  // You can access its properties (like username) and methods (like login)
   User userOne = User('luigi', 25);
   print(userOne.username);
   userOne.login();
 
+  // Another instance of User created with different values
   User userTwo = User('mario', 30);
   print(userTwo.username);
+
+  //=============INHERITANCE CLASS CALLING=============
+  // Creating a new object from SuperUser, which inherits from User
+  // 'userThree' is now an instance of SuperUser with username 'yoshi' and age 20
+  // Since SuperUser extends User, it can also access the properties and methods of User
+  // Like username and login(), even if not declared directly in SuperUser
+  // In addition, SuperUser has its own method publish() which normal Users don't have
+  SuperUser userThree = SuperUser('yoshi', 20);
+  print(userThree.username);
+  userThree.publish();
+  userThree.login(); //can access this from user class kasi SuperUser extends-
+  // -was able to inherit user class
 }
 
 //============FUNCTIONS===========
@@ -97,5 +113,22 @@ class User {
 
   void login() {
     print('user logged in');
+  }
+}
+
+//inheritance inherits properties from one class into another
+//=============INHERITANCE============
+// The class SuperUser inherits the properties and methods from the User class
+// We use `extends` to inherit from another class
+// This means SuperUser can access everything inside User: like username, age, and login()
+// The `super()` keyword is used to call the constructor of the parent class (User)
+// A new method called publish() is added, which is exclusive to SuperUser
+// Only objects of SuperUser can call publish(), but they can also use login() from User
+// This is helpful when you want to reuse common logic but add extra features in some cases
+class SuperUser extends User {
+  SuperUser(String username, int age) : super(username, age);
+  void publish() {
+    print('publish update');
+    //scenario is only user with SuperUser can have this printed
   }
 }

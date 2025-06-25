@@ -129,6 +129,15 @@ class User {
 // A new method called publish() is added, which is exclusive to SuperUser
 // Only objects of SuperUser can call publish(), but they can also use login() from User
 // This is helpful when you want to reuse common logic but add extra features in some cases
+//NOTE: super is built in AND cannot be replaced with other words
+
+//EXPLANATION HOW THIS WORKS
+// "SuperUser(String username, int age) : super(username, age);"
+// This line means the SuperUser class is receiving username and age,
+// and then passing them to the constructor of the User class using the super keyword.
+// super tells Dart that the values should be used to initialize the properties
+// in the parent class (User).
+
 class SuperUser extends User {
   SuperUser(String username, int age) : super(username, age);
   void publish() {

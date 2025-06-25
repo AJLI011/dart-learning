@@ -138,6 +138,9 @@ class User {
 // super tells Dart that the values should be used to initialize the properties
 // in the parent class (User).
 
+// You can rename the parameters here (e.g., uname, userAge),
+// but the values passed in super(...) must match what the User constructor expects.
+
 class SuperUser extends User {
   SuperUser(String username, int age) : super(username, age);
   void publish() {

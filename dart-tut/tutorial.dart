@@ -48,8 +48,13 @@ void main() {
   //in a list, while its not bad to mix data with diff datatype, mas better na wag
   //a good practice is to assign a datatype to a list by using <>
 
-  //===========CLASSES==========
-  
+  // class calling
+  User userOne = User('luigi', 25);
+  print(userOne.username);
+  userOne.login();
+
+  User userTwo = User('mario', 30);
+  print(userTwo.username);
 }
 
 //============FUNCTIONS===========
@@ -68,3 +73,29 @@ int getAge() {
 
 String month() => 'february';
 //another way to declare a function (parang similar sa JS raw)
+
+//class intitializing, pwede rin na within the class, theres a void function
+//=============CLASS============
+// A class is like a blueprint — lets you group properties (data) and methods (functions) together
+// This `User` class has two properties: `username` (String) and `age` (int)
+// We use `late` keyword so that the values can be initialized later (not immediately when declared)
+// A constructor is defined: `User(String username, int age)`
+// - This runs when you create a new User object
+// - `this.username = username` means the value passed to constructor is stored in the property
+// The class also has a method `login()` which just prints out a message
+// You can create a new User by calling: User('name', age)
+// You can then access the properties like: user.username or call methods like: user.login()
+
+class User {
+  late String username;
+  late int age;
+
+  User(String username, int age) {
+    this.username = username;
+    this.age = age;
+  }
+
+  void login() {
+    print('user logged in');
+  }
+}
